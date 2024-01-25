@@ -343,8 +343,8 @@ const checkoutpayement = (req, res) => {
           quantity: item.qty,
         };
       }),
-      success_url: `http://localhost:4000/success`, // Use HTTPS URL
-      cancel_url: `http://localhost:4000/cancel`, // Use HTTPS URL
+      success_url: `${process.env.FRONTEND_URL_PROD}/success`, // Use HTTPS URL
+      cancel_url: `${process.env.FRONTEND_URL_PROD}/cancel`, // Use HTTPS URL
     };
 
     stripe.checkout.sessions.create(params).then((session) => {
