@@ -16,13 +16,12 @@ const app = express();
 app.use(
   helmet.contentSecurityPolicy({
     directives: {
-            scriptSrc: ["'self'", 'https://js.stripe.com', 'https://www.youtube.com'],
-            frameSrc: ["'self'", 'https://js.stripe.com', 'https://maps.google.com/', 'https://www.google.com/', 'https://www.youtube.com'],
-            imgSrc: ["'self'", 'https://hamart-shop.vercel.app', 'data:', 'https://lh3.googleusercontent.com', 'http://localhost:4000', 'http://13.51.207.9'],
+      scriptSrc: ["'self'", 'https://js.stripe.com', 'https://www.youtube.com'],
+      frameSrc: ["'self'", 'https://js.stripe.com', 'https://maps.google.com/', 'https://www.google.com/', 'https://www.youtube.com', 'http://13.51.207.9'], // Allow HTTP source
+      imgSrc: ["'self'", 'https://hamart-shop.vercel.app', 'data:', 'https://lh3.googleusercontent.com', 'http://localhost:4000', 'http://13.51.207.9'], // Allow HTTP source
     },
   })
 );
-
 
 const server = http.createServer(app);
 const io = socketIo(server);
@@ -52,7 +51,7 @@ app.use(
     resave: true,
     cookie: {
       sameSite: 'None',
-      secure: true,
+      secure: false,
     },
   })
 );
