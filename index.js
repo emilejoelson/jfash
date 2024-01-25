@@ -18,7 +18,7 @@ app.use(
     directives: {
             scriptSrc: ["'self'", 'https://js.stripe.com', 'https://www.youtube.com'],
             frameSrc: ["'self'", 'https://js.stripe.com', 'https://maps.google.com/', 'https://www.google.com/', 'https://www.youtube.com'],
-            imgSrc: ["'self'", 'https://hamart-shop.vercel.app', 'data:', 'https://lh3.googleusercontent.com', 'http://localhost:4000', 'http://13.53.130.110'],
+            imgSrc: ["'self'", 'https://hamart-shop.vercel.app', 'data:', 'https://lh3.googleusercontent.com', 'http://localhost:4000', 'http://13.51.207.9'],
     },
   })
 );
