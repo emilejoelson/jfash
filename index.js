@@ -5,23 +5,11 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const cors = require('cors');
 const path = require('path');
-const helmet = require('helmet');
 
 // Local imports
 const db = require('./database/db.js');
 const rout = require('./routes/router.js');
 const app = express();
-
-// Use helmet middleware with adjusted Content Security Policy
-app.use(
-  helmet.contentSecurityPolicy({
-    directives: {
-      scriptSrc: ["'self'", 'https://js.stripe.com', 'https://www.youtube.com'],
-      frameSrc: ["'self'", 'https://js.stripe.com', 'https://maps.google.com/', 'https://www.google.com/', 'https://www.youtube.com', 'http://13.49.49.167'], // Allow HTTP source
-      imgSrc: ["'self'", 'https://hamart-shop.vercel.app', 'data:', 'https://lh3.googleusercontent.com', 'http://localhost:4000', 'http://13.49.49.167'], // Allow HTTP source
-    },
-  })
-);
 
 const server = http.createServer(app);
 const io = socketIo(server);
