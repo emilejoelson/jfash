@@ -114,6 +114,8 @@ const Header = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  
   return (
     <header
       className={`z-50 fixed shadow-md w-full h-auto md:h-[74px] px-2 md:px-4 bg-slate-900 ${
@@ -144,16 +146,16 @@ const Header = () => {
                 <div>
                 <FaTimes size={26} style={{ position: "absolute", top:3, left: 3 }} />
                 <nav className="text-base md:text-lg flex flex-col md:hidden">
-                  <Link to={""} className="px-2 py-1">
+                  <Link to={""} className="px-2 py-1" onClick={scrollToTop}>
                     Accueil
                   </Link>
-                  <Link to={"about"} className="px-2 py-1">
+                  <Link to={"about"} onClick={scrollToTop} className="px-2 py-1">
                     À propos de nous
                   </Link>
-                  <Link to={"menu/6442d476cba400072acc8c31"} className="px-2 py-1">
+                  <Link to={"menu/64e93cb66ded3eeb9f93e6f0"} onClick={scrollToTop} className="px-2 py-1">
                     Menu
                   </Link>
-                  <Link to={"contact"} className="px-2 py-1">
+                  <Link to={"contact"} onClick={scrollToTop}className="px-2 py-1">
                     Contact
                   </Link>
                   <div className="px-2 py-1" onClick={toggleDropDown}>
@@ -217,7 +219,7 @@ const Header = () => {
               >
                 <FontAwesomeIcon icon={faSearch} />
               </div>
-              <div className="justify-center absolute pt-[16px] mt-[100px] ml-[16px] gap-4 my-4 overflow-hidden scrollbar-none">
+              <div className="justify-center z-[2] absolute pt-[16px] mt-[100px] ml-[16px] gap-4 my-4 overflow-hidden scrollbar-none">
                 {searchResultsFound ? (
                   query[0] ? (
                     filteredRecherche.map((el) => (
@@ -243,10 +245,10 @@ const Header = () => {
 
           <div className="nv flex items-center font-sans gap-4 md:gap-7">
             <nav className="gap-4 md:gap-6 text-black 800px:text-[#fff] hidden md:flex">
-              <Link to={""}>Accueil</Link>
-              <Link to={"about"}>À_propos_de_nous</Link>
-              <Link to={"menu/64e93cb66ded3eeb9f93e6f0"}>Menu</Link>
-              <Link to={"contact"}>Contact</Link>
+              <Link to={""} onClick={scrollToTop}>Accueil</Link>
+              <Link to={"about"} onClick={scrollToTop}>À_propos_de_nous</Link>
+              <Link to={"menu/64e93cb66ded3eeb9f93e6f0"} onClick={scrollToTop}>Menu</Link>
+              <Link to={"contact"} onClick={scrollToTop}>Contact</Link>
             </nav>
             <div className=" text-2xl pb-[10px] relative">
               <Link to={"cart"}

@@ -57,9 +57,9 @@ function Temoignage() {
   return (
     <div className={`  ${isMobile ? 'w-[26em]' : 'w-[92em] bg-white'}`} style={{ borderRadius: isMobile ? "0px" : "12px" }} >
       <div className="relative">
-        <div className={`absolute  ${isMobile ? 'left-[2em]':'left-[41em]'}  z-20  w-40`}>
+        <div className={`absolute  ${isMobile ? 'left-[2em]':'left-[41em]'}  z-[2]  w-40`}>
           <button
-            className="font-bold hover:bg-[#D4AF37] hover:scale-110 bg-[#8B7355] mb-20 text-black rounded-full"
+            className="font-bold hover:bg-[#D4AF37]  hover:scale-110 bg-[#8B7355] mb-20 text-black rounded-full"
             onClick={handlePrevClick}
           >
             <NavigateBeforeIcon
@@ -71,7 +71,7 @@ function Temoignage() {
             />
           </button>
         </div>
-        <div className={`absolute  ${isMobile ? 'left-[15em]':'left-[51em]'}   z-20 h-270 w-40`}>
+        <div className={`absolute  ${isMobile ? 'left-[15em]':'left-[51em]'}  z-[2] h-270 w-40`}>
           <button
             className="font-bold hover:bg-[#D4AF37] hover:scale-110 bg-[#8B7355] mb-20 text-black rounded-full"
             onClick={handleNextClick}
