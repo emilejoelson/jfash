@@ -72,11 +72,11 @@ SwiperCore.use([EffectCoverflow, Pagination, Navigation]);
 
 
 const imag = [
-  { src: offre01, url: "http://16.170.228.168/menu_couture_officiel" },
-  { src: offre02, url: "http://16.170.228.168/menu_coiffure_officiel" },
-  { src: offre03, url: "http://16.170.228.168/menu_esthetique_officiel" },
-  { src: offre04, url: "http://16.170.228.168/offre_g%C3%A9n%C3%A9rale_officielle" },
-  { src: offre05, url: "http://16.170.228.168/menu_couture_officiel" },
+  { src: offre01, url: "http://localhost:4000/menu_couture_officiel" },
+  { src: offre02, url: "http://localhost:4000/menu_coiffure_officiel" },
+  { src: offre03, url: "http://localhost:4000/menu_esthetique_officiel" },
+  { src: offre04, url: "http://localhost:4000/offre_g%C3%A9n%C3%A9rale_officielle" },
+  { src: offre05, url: "http://localhost:4000/menu_couture_officiel" },
 ]; 
 
 
