@@ -17,6 +17,7 @@ const Signup = () => {
     firstName: "",
     lastName: "",
     email: "",
+    telephone:"",
     password: "",
     confirmPassword: "",
     image: ""
@@ -71,9 +72,9 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { firstName, email, password, confirmPassword } = data;
+    const { firstName, email,telephone, password, confirmPassword } = data;
 
-    if (firstName && email && password && confirmPassword) {
+    if (firstName && email &&telephone && password && confirmPassword) {
       if (password === confirmPassword) {
         const fetchData = await fetch(`${process.env.REACT_APP_SERVER_DOMIN}/signup`, {
           method: "POST",
@@ -90,6 +91,7 @@ const Signup = () => {
             firstName: "",
             lastName: "",
             email: "",
+            telephone:"",
             password: "",
             confirmPassword: "",
             image: ""
@@ -163,7 +165,15 @@ const Signup = () => {
                   onChange={handleChangeEmail}
                 />
                 <div className="text-red-500 italic">{messageEmail}</div>
-
+                <label htmlFor="telephone" className="text-[#C49A45]">Téléphone</label>
+                <input
+                  type="text"
+                  id="telephone"
+                  name="telephone"
+                  className="mt-1 mb-2 w-full text-[#0A0A0A] bg-white px-2 py-1 rounded focus-within:outline-blue-300"
+                  value={data.telephone}
+                  onChange={handleOnChange}
+                />
                 <label htmlFor="password" className="text-[#C49A45]">Mot de passe</label>
                 <div className="flex px-2 py-1 text-[#0A0A0A] bg-white rounded mt-1 mb-2 focus-within:outline focus-within:outline-blue-300">
                   <input
@@ -253,7 +263,15 @@ const Signup = () => {
             onChange={handleChangeEmail}
           />
           <div className="text-red-500 italic">{messageEmail}</div>
-
+          <label htmlFor="telephone" className="text-[#C49A45]">Téléphone</label>
+          <input
+            type="text"
+            id="telephone"
+            name="telephone"
+            className="mt-1 mb-2 w-full text-[#0A0A0A] bg-white px-2 py-1 rounded focus-within:outline-blue-300"
+            value={data.telephone}
+            onChange={handleOnChange}
+          />
           <label htmlFor="password" className="text-[#C49A45]">Mot de passe</label>
           <div className="flex px-2 py-1 text-[#0A0A0A] bg-white rounded mt-1 mb-2 focus-within:outline focus-within:outline-blue-300">
             <input
