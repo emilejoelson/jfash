@@ -10,6 +10,7 @@ import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { EffectCoverflow, Pagination, Navigation } from 'swiper';
 import CardFeaturerdv from '../../components/CardFeaturerdv';
+import { Typography } from '@mui/material';
 SwiperCore.use([EffectCoverflow, Pagination, Navigation]);
 
 function Dissubcategory() {
@@ -21,8 +22,78 @@ function Dissubcategory() {
     (product) =>
       product.subcategory.toLowerCase() === subCategory.toLowerCase()
   );
+
+  const isMobile = window.innerWidth < 768;
   return (
-    <div className=" justify-center">
+    <div className="bg-yellow-600 ">
+      {
+        isMobile?
+        (
+      <div>
+        <div className="   pt-[12.5em] ">
+        {filteredProducts.length > 0 && (
+            <Typography variant='h2' className="mb-5">{filteredProducts[0].subcategory}</Typography>
+          )}
+        <div className="bg-slate-100 ">
+          <Swiper
+            effect="coverflow"
+            slidesPerView={3}
+            centeredSlides={true}
+            loop={true}
+            coverflowEffect={{
+              rotate: 50,
+              stretch: 0,
+              depth: 100,
+              modifier: 1,
+              slideShadows: true,
+            }}
+            pagination={{ clickable: true }}
+            navigation={true}
+            className="my-4"
+          >
+            {filteredProducts[0] ? (
+            filteredProducts.map((el) => {
+              return (
+                <SwiperSlide key={el._id} className=" flex justify-center w-[17%]">
+                  <div className="ml-[30%]">
+                    {(subCategory === "Produits") ?
+                     (<CardFeature
+                      id={el._id}
+                      image={el.image}
+                      subcategory={el.subcategory}
+                      name={el.name}
+                      price={el.price}
+                    />) :
+                    (<CardFeaturerdv 
+                      id={el._id}
+                      image={el.image}
+                      subcategory={el.subcategory}
+                      name={el.name}
+                      price={el.price}
+                     />)
+
+                    }
+                    
+                  </div>
+                </SwiperSlide>
+              );
+            })
+          ) : (
+              loadingArrayFeature.map((el, index) => (
+                <SwiperSlide key={index + "allProduct"} className="w-[13%]">
+                  <CardFeature loading="Chargement..." />
+                </SwiperSlide>
+              ))
+            )}
+          </Swiper>
+        </div>
+        <Footer />
+        </div>
+        </div>
+        )
+        :
+        (
+          <div className=" justify-center">
       <div className="bg-slate-100">
         <Swiper
           effect="coverflow"
@@ -78,6 +149,10 @@ function Dissubcategory() {
       </div>
       <Footer />
     </div>
+        )
+      }
+    </div>
+    
   );
 }
 

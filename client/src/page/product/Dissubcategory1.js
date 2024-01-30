@@ -10,6 +10,7 @@ import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { EffectCoverflow, Pagination, Navigation } from 'swiper';
 import CardFeaturerdv from '../../components/CardFeaturerdv';
+import { Typography } from '@mui/material';
 SwiperCore.use([EffectCoverflow, Pagination, Navigation]);
 
 function Dissubcategory1() {
@@ -22,11 +23,15 @@ function Dissubcategory1() {
   );
   const isMobile = window.innerWidth < 768;
   return (
-    <div  className="bg-[#FFD700] ">
+    <div  className="bg-yellow-600 ">
       {
         isMobile?
         (
-        <div className="   mt-[9em] ">
+
+        <div className="pt-[350px]  ">
+          {filteredProducts.length > 0 && (
+            <Typography variant='h2' className="mb-5">{filteredProducts[0].subcategory1}</Typography>
+          )}
         <div className="bg-slate-100">
           <Swiper
             effect="coverflow"
