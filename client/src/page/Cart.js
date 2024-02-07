@@ -286,6 +286,20 @@ const Cart = () => {
                         <span className="text-[#0A0A0A] font-sans"> dh</span>
                         </Typography>
                       </div>
+                      <div className=" mt-5 mb-2">
+                        <button
+                          className="font-bold bg-slate-500 text-slate-200 px-4 py-2 rounded"
+                          sx={{
+                            color: colors.grey[100],
+                            fontSize: "16px",
+                            fontWeight: "bold",
+                            padding: "10px 20px",
+                          }}
+                          onClick={handlePaymentByCash}
+                        >
+                          <span className="font-sans" >Paiement par espèce</span>
+                        </button>
+                      </div>
                       <div className=" mt-5 mb-4">
                         <button
                           className="font-bold bg-green-500 text-slate-200 px-4 py-2 rounded"
@@ -298,20 +312,6 @@ const Cart = () => {
                           onClick={handlePayment}
                         >
                           <span className="font-sans" >Paiement par carte</span>
-                        </button>
-                      </div>
-                      <div className=" mt-5 mb-4">
-                        <button
-                          className="font-bold bg-green-500 text-slate-200 px-4 py-2 rounded"
-                          sx={{
-                            color: colors.grey[100],
-                            fontSize: "16px",
-                            fontWeight: "bold",
-                            padding: "10px 20px",
-                          }}
-                         
-                        >
-                          <span className="font-sans" >Paiement par espèce</span>
                         </button>
                       </div>
                     </div>
