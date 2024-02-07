@@ -7,11 +7,10 @@ import "./About.css";
 import { Link } from "react-router-dom";
 import relooking from "./../assest/images/relooking.png";
 import couture from "./../assest/images/couture.png";
-import esthetique from "./../assest/images/esthétiquea.jpg";
 import offer from "./../assest/images/offer.png";
 import imagebusiness from "./../assest/images/imagebusiness.jpg";
+
 //Image esthétiqueu
-import RestaurantIcon from '@mui/icons-material/Restaurant';
 import { Typography, useMediaQuery } from "@mui/material";
 import Footer from "../components/Footer";
 import {  useNavigate, useParams } from 'react-router-dom';
@@ -28,7 +27,6 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
-import AirportShuttleIcon from '@mui/icons-material/AirportShuttle';
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
@@ -74,7 +72,6 @@ SwiperCore.use([EffectCoverflow, Pagination, Navigation]);
 const imag = [
   { src: offre01, url: "http://13.60.24.132/menu_couture_officiel" },
   { src: offre02, url: "http://13.60.24.132/menu_coiffure_officiel" },
-  { src: offre03, url: "http://13.60.24.132/menu_esthetique_officiel" },
   { src: offre04, url: "http://13.60.24.132/offre_g%C3%A9n%C3%A9rale_officielle" },
   { src: offre05, url: "http://13.60.24.132/menu_couture_officiel" },
 ]; 
