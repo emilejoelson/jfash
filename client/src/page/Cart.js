@@ -163,6 +163,72 @@ const Cart = () => {
     }
   };
   
+  const handlePaymentByCash = async (e) => {
+    e.preventDefault();
+
+    if (user.email) {
+        try {
+            const totalPrice = cartItems.reduce((acc, curr) => acc + parseInt(curr.total), 0);
+
+            // Add these declarations
+            const updatedData = {
+                name: cartItems.map(item => item.name).join(", "),
+                category: cartItems.map(item => item.category).join(", "),
+                priceUnit: cartItems.map(item => parseInt(item.price)),
+                quantity: cartItems.map(item => parseInt(item.qty)),
+                totalUnit: cartItems.map(item => parseInt(item.total)),
+                price: totalPrice.toString(),
+                total: cartItems.reduce((acc, curr) => acc + parseInt(curr.qty), 0).toString(),
+                username: user.lastName || "",
+                userimage: user.image || "",
+                telephone: user.telephone || "",
+            };
+
+            const [invoiceRes, totalRes] = await Promise.all([
+                fetch(`${process.env.REACT_APP_SERVER_DOMIN}/createInvoice`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(updatedData),
+                }),
+                fetch(`${process.env.REACT_APP_SERVER_DOMIN}/updateTotal`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        qty: cartItems.map((item) => item.qty),
+                        price: cartItems.map((item) => item.price),
+                    }),
+                }),
+            ]);
+
+            if (
+                invoiceRes.status === 500 ||
+                totalRes.status === 500
+            ) {
+                throw new Error("Server error");
+            }
+
+            toast('Paiement par chec avec succès !');
+            navigate('/rendez-vous-par-paiement', { state: { cartData: cartItems } });
+
+            if (socket) {
+                const notificationMessage = `${user.email} has just ordered ${updatedData.name} with unit price ${updatedData.priceUnit.join(', ')} having quantity ${updatedData.quantity.join(', ')}. The total is ${updatedData.totalUnit.join(', ')} and the price is ${totalPrice.toFixed(2)} dh, ${timeSince(new Date())} ago`;
+
+                socket.emit('notification', {
+                    message: notificationMessage,
+                });
+            }
+        } catch (error) {
+            console.error("Error handling payment:", error);
+            toast.error("Payment processing failed");
+        }
+    } else {
+        toast("Il faut se connecter !");
+        setTimeout(() => {
+            navigate("/login");
+        }, 1000);
+    }
+};
+
   
 
   const isMobile = window.innerWidth < 768;
@@ -231,7 +297,21 @@ const Cart = () => {
                           }}
                           onClick={handlePayment}
                         >
-                          <span className="font-sans" >Valider</span>
+                          <span className="font-sans" >Paiement par carte</span>
+                        </button>
+                      </div>
+                      <div className=" mt-5 mb-4">
+                        <button
+                          className="font-bold bg-green-500 text-slate-200 px-4 py-2 rounded"
+                          sx={{
+                            color: colors.grey[100],
+                            fontSize: "16px",
+                            fontWeight: "bold",
+                            padding: "10px 20px",
+                          }}
+                         
+                        >
+                          <span className="font-sans" >Paiement par espèce</span>
                         </button>
                       </div>
                     </div>
@@ -302,19 +382,35 @@ const Cart = () => {
                         <span className="text-[#0A0A0A] font-sans ml-2"> TOTAL: {totalPrice.toFixed(2)} dh</span>
                         </Typography>
                       </div>
-                      <div className="ml-[-60%] mt-5">
-                        <button
-                          className="font-bold bg-green-500 w-[20%] text-slate-200 px-4 py-2 rounded"
-                          sx={{
-                            color: colors.grey[100],
-                            fontSize: "16px",
-                            fontWeight: "bold",
-                            padding: "10px 20px",
-                          }}
-                          onClick={handlePayment}
-                        >
-                          <span className="font-sans" >Valider</span>
-                        </button>
+                      <div className="flex gap-5">
+                        <div className=" mt-5">
+                          <button
+                            className="font-bold bg-green-500 w-full text-slate-200 px-4 py-2 rounded"
+                            sx={{
+                              color: colors.grey[100],
+                              fontSize: "16px",
+                              fontWeight: "bold",
+                              padding: "10px 20px",
+                            }}
+                            onClick={handlePayment}
+                          >
+                            <span className="font-sans" >Paiement par carte</span>
+                          </button>
+                        </div>
+                        <div className=" mt-5">
+                          <button
+                            className="font-bold bg-slate-500 w-full text-slate-200 px-4 py-2 rounded"
+                            sx={{
+                              color: colors.grey[100],
+                              fontSize: "16px",
+                              fontWeight: "bold",
+                              padding: "10px 20px",
+                            }}
+                            onClick={handlePaymentByCash}
+                          >
+                            <span className="font-sans" >Paiement par espèce</span>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>

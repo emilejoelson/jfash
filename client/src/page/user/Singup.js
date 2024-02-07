@@ -71,48 +71,57 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const { firstName, email,telephone, password, confirmPassword } = data;
-
-    if (firstName && email &&telephone && password && confirmPassword) {
+  
+    const { firstName, email, telephone, password, confirmPassword, image } = data;
+  
+    if (!image) {
+      toast.error("Ajouter votre image de profil s'il vous plait !");
+      return;
+    }
+  
+    if (firstName && email && telephone && password && confirmPassword) {
       if (password === confirmPassword) {
         const fetchData = await fetch(`${process.env.REACT_APP_SERVER_DOMIN}/signup`, {
-          method: "POST",
+          method: 'POST',
           headers: {
-            "content-type": "application/json"
+            'content-type': 'application/json',
           },
-          body: JSON.stringify(data)
+          body: JSON.stringify(data),
         });
-
+  
         const dataRes = await fetchData.json();
-        toast(dataRes.message);
-        setData(() => {
-          return {
-            firstName: "",
-            lastName: "",
-            email: "",
-            telephone:"",
-            password: "",
-            confirmPassword: "",
-            image: ""
-          };
+        toast.success(dataRes.message);
+        setData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          telephone: '',
+          password: '',
+          confirmPassword: '',
+          image: '',
         });
       } else {
-        alert("Mot de passe et confirmation non identique");
+        toast.error("Mot de passe et confirmation non identique");
       }
     } else {
-      alert("Remplir le champ vide");
+      toast.error("Remplir le champ vide");
     }
   };
 
   const handleUploadProfileImage = async (e) => {
+    if (e.target.files.length === 0) {
+      alert("Ajouter votre image de profil s'il vous plait !");
+      return;
+    }
+  
     const imageData = await ImagetoBase64(e.target.files[0]);
-
+  
     setData(prevData => ({
       ...prevData,
       image: imageData
     }));
   };
+  
   const isMobile = window.innerWidth < 768;
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });

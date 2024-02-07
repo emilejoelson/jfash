@@ -44,6 +44,7 @@ import Managedealdujour from './page/Managedealdujour';
 import Menudeal from './page/Menudealdujour';
 import Manageuserlocal from './page/Manageuserlocal';
 import Managedevis from './page/Managedevis';
+import Rdv_par_check from './page/Rdv_par_check';
 
 const router= createBrowserRouter(
   createRoutesFromElements(
@@ -58,6 +59,7 @@ const router= createBrowserRouter(
         <Route path="singup" element={<Singup/>} />
         <Route path="cart" element={<Cart/>} />
         <Route path="success" element={<Success/>} />
+        <Route path="rendez-vous-par-paiement" element={<Rdv_par_check/>} />
         <Route path="cancel" element={<Cancel/>} />
         <Route path="about" element = {<About/>}/>
         <Route path="facture" element={<Facture/>}  />
