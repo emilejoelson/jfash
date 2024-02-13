@@ -437,7 +437,7 @@
     transform-origin: center;
     will-change: transform, opacity; /* Hint for optimization */
     transform: translate3d(0, 0, 0); /* GPU acceleration */
-    animation: moveAroundCircle 20s linear infinite;
+    animation: moveAroundCircle 100s linear infinite;
   }
   .background-image {
     position: absolute;

@@ -156,16 +156,16 @@ height: 140px; /* Adjust the size as needed */
 }
 .heart {
   position: absolute;
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 100px;
   top: 14em;
   left: 15px;
 }
 
 .heart::before,
 .heart::after {
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
 }
 
 .heart::before {
@@ -175,35 +175,35 @@ height: 140px; /* Adjust the size as needed */
 
 .heartk {
   position: absolute;
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 100px;
   top: 14em;
   left: 240px;
 }
 
 .heartk::before,
 .heartk::after {
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
 }
 
 .heartk::before {
-  top: -25px;
+  top: -250px;
   font-size: 30px;
 }
 
 .hearta {
   position: absolute;
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 100px;
   top:38em;
   left: 20px;
 }
 
 .hearta::before,
 .hearta::after {
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
 }
 
 .hearta::before {
@@ -212,8 +212,8 @@ height: 140px; /* Adjust the size as needed */
 }
 
 .heartak {
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 100px;
   top:38em;
   left: 250px;
   position: absolute;
@@ -221,8 +221,8 @@ height: 140px; /* Adjust the size as needed */
 
 .heartak::before,
 .heartak::after {
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
 }
 
 .heartak::before {

@@ -455,18 +455,19 @@ const handleSubmit = async (e) => {
                     Pédicure Manicure
                   </p>
                 </div>
+                
                 <div className=" flex cercle items-center justify-center">
-                <div className=" relative items-center justify-center bg-slate-900 z-[1]  border-5 border-solid border-[#D4AF37]"
-                  style={{width:"300px",height:"300px",display:"flex",justifyContent:"center",alignItems:"center",
-                        overflow:"hidden",marginTop:"8.2em", borderRadius:"50%",
-                        border:"15px solid #0A0A0A "
-                }}
-                  > 
-                      <div className="circle cursor-pointer ">
-                         <img src={srvc} alt="service"/>
-                      </div>
-                 </div>
-              </div>
+                  <div className=" relative items-center justify-center bg-slate-900 z-[1]  border-5 border-solid border-[#D4AF37]"
+                    style={{width:"200px",height:"300px",display:"flex",justifyContent:"center",alignItems:"center",
+                          overflow:"hidden",marginTop:"10em",marginLeft:"1em", borderRadius:"50%",
+                          border:"15px solid #0A0A0A "
+                  }}
+                    > 
+                        <div className="circle cursor-pointer ">
+                          <img src={srvc} alt="service" style={{marginTop:"5em"}}/>
+                        </div>
+                  </div>
+                </div>
               <div className={`pt-[50px] absolute cursor-pointer ml-[40px] hearta font-script hover:text-[#0A0A0A] ${
                     isHovered ? 'hover:scale-110' : ''
                   }`}
