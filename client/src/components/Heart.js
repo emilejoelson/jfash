@@ -75,7 +75,7 @@ function Heart() {
         }}
         onClick={handleCoiffureHomme}
       >
-        <p className={`transition-opacity ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
+        <p className={`transition-opacity text-invisible ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
           Coiffure Homme
         </p>
       </div>
