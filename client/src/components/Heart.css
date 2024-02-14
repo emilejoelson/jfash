@@ -159,7 +159,7 @@ height: 140px; /* Adjust the size as needed */
   width: 100px;
   height: 100px;
   top: 14em;
-  left: 15px;
+  left: 0px;
 }
 
 .heart::before,
@@ -178,7 +178,7 @@ height: 140px; /* Adjust the size as needed */
   width: 100px;
   height: 100px;
   top: 14em;
-  left: 240px;
+  left: 200px;
 }
 
 .heartk::before,
@@ -196,8 +196,8 @@ height: 140px; /* Adjust the size as needed */
   position: absolute;
   width: 100px;
   height: 100px;
-  top:38em;
-  left: 20px;
+  top:34em;
+  left: 10px;
 }
 
 .hearta::before,
@@ -214,8 +214,8 @@ height: 140px; /* Adjust the size as needed */
 .heartak {
   width: 100px;
   height: 100px;
-  top:38em;
-  left: 250px;
+  top:34em;
+  left: 220px;
   position: absolute;
 }
 
