@@ -70,10 +70,10 @@ SwiperCore.use([EffectCoverflow, Pagination, Navigation]);
 
 
 const imag = [
-  { src: offre01, url: "http://13.60.24.132/menu_couture_officiel" },
-  { src: offre02, url: "http://13.60.24.132/menu_coiffure_officiel" },
-  { src: offre04, url: "http://13.60.24.132/offre_g%C3%A9n%C3%A9rale_officielle" },
-  { src: offre05, url: "http://13.60.24.132/menu_couture_officiel" },
+  { src: offre01, url: "https://fitifash.com/menu_couture_officiel" },
+  { src: offre02, url: "https://fitifash.com/menu_coiffure_officiel" },
+  { src: offre04, url: "https://fitifash.com/offre_g%C3%A9n%C3%A9rale_officielle" },
+  { src: offre05, url: "https://fitifash.com/menu_couture_officiel" },
 ]; 
 
 
