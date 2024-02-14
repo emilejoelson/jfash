@@ -150,7 +150,7 @@ const Header = () => {
                   <Link to={"about"}  onClick={scrollToTop} className="px-2 py-1">
                     À propos de nous
                   </Link>
-                  <Link to={"menu/64e93cb66ded3eeb9f93e6f0"} onClick={scrollToTop}  className="px-2 py-1">
+                  <Link to={"menu/65b79aeaa87419d478c9eee1"} onClick={scrollToTop}  className="px-2 py-1">
                     Menu
                   </Link>
                   <Link to={"contact"} onClick={scrollToTop} className="px-2 py-1">
@@ -245,7 +245,7 @@ const Header = () => {
             <nav className="gap-4 md:gap-6 text-black 800px:text-[#fff] hidden md:flex">
               <Link to={""} onClick={scrollToTop}>Accueil</Link>
               <Link to={"about"} onClick={scrollToTop}>À_propos_de_nous</Link>
-              <Link to={"menu/64e93cb66ded3eeb9f93e6f0"} onClick={scrollToTop}>Menu</Link>
+              <Link to={"menu/65b79aeaa87419d478c9eee1"} onClick={scrollToTop}>Menu</Link>
               <Link to={"contact"} onClick={scrollToTop}>Contact</Link>
             </nav>
             <div className=" text-2xl pb-[10px] relative">
