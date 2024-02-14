@@ -458,7 +458,7 @@ const handleSubmit = async (e) => {
                 
                 <div className=" flex cercle items-center justify-center">
                   <div className=" relative items-center justify-center bg-slate-900 z-[1]  border-5 border-solid border-[#D4AF37]"
-                    style={{width:"200px",height:"300px",display:"flex",justifyContent:"center",alignItems:"center",
+                    style={{width:"200px",height:"200px",display:"flex",justifyContent:"center",alignItems:"center",
                           overflow:"hidden",marginTop:"10em",marginLeft:"1em", borderRadius:"50%",
                           border:"15px solid #0A0A0A "
                   }}
