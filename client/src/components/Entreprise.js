@@ -50,7 +50,7 @@ const VideoSlider = () => {
   };
 
   const handlePlayYoutubeVideo = () => {
-    setYoutubeVideoUrl('https://youtu.be/ThFIcXlms70');
+    setYoutubeVideoUrl('https://youtu.be/VPj9jgGC_2Y');
   };
 
   const handleCloseYoutubeVideo = () => {
